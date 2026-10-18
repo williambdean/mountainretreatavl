@@ -61,7 +61,7 @@
       color: var(--pine);
       margin-bottom: 2rem;
     }
-    .mark span { color: var(--violet); }
+    .mark span { color: var(--violet); transition: opacity 0.6s ease; }
     p.intro { margin-bottom: 2rem; font-size: 1.05rem; }
     ul.points {
       list-style: none;
@@ -87,7 +87,7 @@
 <body>
   <main>
     <h1>Coming Soon</h1>
-    <p class="mark">A Mountain Retreat<br><span>minutes from everywhere</span></p>
+    <p class="mark">A Mountain Retreat<br><span id="tagline">minutes from everywhere</span></p>
     <p class="intro">
       A secluded wooded hillside retreat in Arden, North Carolina,
       hidden away yet an easy reach of the Blue Ridge.
@@ -101,5 +101,27 @@
     <p class="soon">Opening for bookings soon</p>
     <footer>mountainretreatavl.com</footer>
   </main>
+  <script>
+    (function () {
+      var places = [
+        "everywhere",
+        "Asheville Regional Airport",
+        "Biltmore Park",
+        "the Blue Ridge Parkway",
+        "the Biltmore Estate",
+        "the North Carolina Arboretum"
+      ];
+      var el = document.getElementById("tagline");
+      var i = 0;
+      setInterval(function () {
+        el.style.opacity = 0;
+        setTimeout(function () {
+          i = (i + 1) % places.length;
+          el.textContent = "minutes from " + places[i];
+          el.style.opacity = 1;
+        }, 600);
+      }, 3000);
+    })();
+  </script>
 </body>
 </html>
