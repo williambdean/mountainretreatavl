@@ -87,7 +87,7 @@
 <body>
   <main>
     <h1>Coming Soon</h1>
-    <p class="mark">A Mountain Retreat<br><span id="tagline">minutes from everywhere</span></p>
+    <p class="mark">A Mountain Retreat<br><span>minutes from </span><span id="destination" style="font-weight: bold">everywhere</span></p>
     <p class="intro">
       A secluded wooded hillside retreat in Arden, North Carolina,
       hidden away yet an easy reach of the Blue Ridge.
@@ -111,13 +111,13 @@
         "the North Carolina Arboretum",
         "everywhere"
       ];
-      var el = document.getElementById("tagline");
-      var i = 0;
+      var el = document.getElementById("destination");
+      var i = places.length - 1;
       setInterval(function () {
         el.style.opacity = 0;
         setTimeout(function () {
           i = (i + 1) % places.length;
-          el.textContent = "minutes from " + places[i];
+          el.textContent = places[i];
           el.style.opacity = 1;
         }, 600);
       }, 3000);
