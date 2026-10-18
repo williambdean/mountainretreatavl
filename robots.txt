@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://mountainretreatavl.com/sitemap.xml
